@@ -10,7 +10,7 @@ main()
     configureClocks();		/* setup master oscillator, CPU & peripheral clocks */
     //buzzer_init();
     //led_init();
-    switch_init()
+    switch_init();
 
     enableWDTInterrupts();	/* enable wd timer */
 
