@@ -32,4 +32,7 @@ switch_interrupt_handler()
   switch_state_down = (p1val & SW1) ? 0 : 1; /* 0 when SW1 is up */
   switch_state_changed = 1;
   led_update();
+  buzzer_init();
 }
+
+
