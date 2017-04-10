@@ -1,14 +1,12 @@
-#ifndef led_included
-#define led_included
+#include <msp430.h>
+#include "switches.h"
 
-#define LED_RED BIT0               // P1.0
-#define LED_GREEN BIT6             // P1.6
-#define LEDS (BIT0 | BIT6)
+/* Switch on P1 (S2) */
+void
+__interrupt_vec(PORT1_VECTOR) Port_1(){
+  if (P1IFG & SWITCHES) {	      /* did a button cause this interrupt? */
+    P1IFG &= ~SWITCHES;		      /* clear pending sw interrupts */
+    switch_interrupt_handler();	/* single handler for all switches */
+  }
+}
 
-extern unsigned char red_on, green_on;
-extern unsigned char led_changed;
-
-void led_init();
-void led_update();
-
-#endif // included
