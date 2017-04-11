@@ -1,7 +1,6 @@
 #include <msp430.h>
 #include "libTimer.h"
 #include "buzzer.h"
-#include "switches.h"
 
 static unsigned int period = 1000;
 static signed int rate = 200;
@@ -23,10 +22,8 @@ void buzzer_init()
     P2SEL &= ~BIT7;
     P2SEL |= BIT6;
     P2DIR = BIT6;		/* enable output to speaker (P2.6) */
-    switch_state_changed = 1;
 
-    if (switch_state_changed)
-    	buzzer_advance_frequency();	/* start buzzing!!! */
+    buzzer_advance_frequency();	/* start buzzing!!! */
 }
 
 void buzzer_advance_frequency()
@@ -45,6 +42,11 @@ void buzzer_set_period(short cycles)
   CCR0 = cycles;
   CCR1 = cycles >> 1;		/* one half cycle */
 }
+
+
+
+
+
 
 
 
