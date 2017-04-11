@@ -24,4 +24,3 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
   }
   led_update();
 }
-
