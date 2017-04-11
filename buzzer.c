@@ -40,7 +40,7 @@ void buzzer_advance_frequency()
 void buzzer_set_period(short cycles)
 {
   CCR0 = cycles;
-  CCR1 = cycles >> 5;		/* one half cycle */
+  CCR1 = cycles >> 7;		/* one half cycle */
 }
 
 
