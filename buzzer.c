@@ -2,8 +2,8 @@
 #include "libTimer.h"
 #include "buzzer.h"
 
-static unsigned int period = 1000;
-static signed int rate = 200;
+static unsigned int period = 2000;
+static signed int rate = 1000;
 
 #define MIN_PERIOD 1000
 #define MAX_PERIOD 4000
